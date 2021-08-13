@@ -23,6 +23,7 @@
 	<!-- <input type="text" on:input={handleInput} value={name}> -->
 
 	<input type="text" bind:value={name}>
+	
 
 	<button on:click={changetoUnknown}>changetoUnknown</button>
 
