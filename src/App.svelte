@@ -1,38 +1,34 @@
 <script>
-// const { text }=require("svelte/internal");
-
-	let firstName = "";
-	let lastName = "";
-	let src = "favicon.png";
-
-	$: fullName = `${firstName} ${lastName}`;
-	$: {
-		console.log({firstName});
-		console.log({lastName});
-	}
-
-
-	const changetoUnknown = () => {
-		firstName = "Unknown";
-	}
+	let fruits = [
+		{name: "Apple", color: "Red", amount: 5, id: 1},
+		{name: "Banana", color: "yellow", amount: 7, id: 2},
+		{name: "Grape", color: "Purple", amount: 3, id: 3}
+	];
 </script>
 
 <main>
-	<h1>Hellodfds {fullName}</h1>
 
-	<label for="firstName">firstName</label>
-	<input type="text" bind:value={firstName}>
-
-	<label for="LastName">LastName</label>
-	<input type="text" bind:value={lastName}>
-
-
-	<button on:click={changetoUnknown}>changetoUnknown</button>
-
-	<img src={src} alt="Svelte logo">
+	{#each fruits as fruit (fruit.id)}
+		<div class="card">
+			<h5>{fruits[0].name}</h5>
+			<p>{fruits[0].color}</p>
+		</div>
+	{:else}
+		<p>There is no fruit on our fruit array</p>
+	{/each}
 </main>
 
 <style>
+	h5, p {
+		margin: 4px 0px;
+	}
+	.card {
+		max-width: 400px;
+		padding: 8px;
+		border-radius: 20px;
+		border: 2px solid red;
+		margin-top: 8px;
+	}
 	main {
 		display: flex;
 		flex-direction: column;
