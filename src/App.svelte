@@ -4,6 +4,15 @@
 		{name: "Banana", color: "yellow", amount: 7, id: 2},
 		{name: "Grape", color: "Purple", amount: 3, id: 3}
 	];
+
+	const deleteFruit = (id) => {
+		console.log(id);
+
+		fruits = fruits.filter((fruit) => fruit.id != id);
+
+		console.log(fruits);
+	}
+
 </script>
 
 <main>
@@ -12,6 +21,7 @@
 		<div class="card">
 			<h5>{fruits[0].name}</h5>
 			<p>{fruits[0].color}</p>
+			<button on:click={() => deleteFruit(fruit.id)}>Delete</button>
 		</div>
 	{:else}
 		<p>There is no fruit on our fruit array</p>
