@@ -1,34 +1,34 @@
 <script>
 // const { text }=require("svelte/internal");
 
-	let name = "";
+	let firstName = "";
+	let lastName = "";
 	let src = "favicon.png";
-	let count = 0;
 
-	const incrementCounter = () => {
-		count += 1;
+	$: fullName = `${firstName} ${lastName}`;
+	$: {
+		console.log({firstName});
+		console.log({lastName});
 	}
 
-	const handleInput = (event) => {
-		name = event.target.value;
-	}
+
 	const changetoUnknown = () => {
-		name = "Unknown";
+		firstName = "Unknown";
 	}
 </script>
 
 <main>
-	<h1>Hellodfds {name}</h1>
+	<h1>Hellodfds {fullName}</h1>
 
-	<!-- <input type="text" on:input={handleInput} value={name}> -->
+	<label for="firstName">firstName</label>
+	<input type="text" bind:value={firstName}>
 
-	<input type="text" bind:value={name}>
-	
+	<label for="LastName">LastName</label>
+	<input type="text" bind:value={lastName}>
+
 
 	<button on:click={changetoUnknown}>changetoUnknown</button>
 
-	<!-- <h3>Counter: {count}</h3>
-	<button on:click={incrementCounter}>Add 1 to counter</button> -->
 	<img src={src} alt="Svelte logo">
 </main>
 
