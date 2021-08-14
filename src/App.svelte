@@ -25,6 +25,10 @@
 
 	<Announcement />
 
+	<div class="alert">
+		Hi tst
+	</div>
+
 	{#each fruits as fruit (fruit.id)}
 		{#if fruit.amount < 4}
 			<div class="card">
@@ -41,6 +45,7 @@
 </main>
 
 <style>
+
 	h5, p {
 		margin: 4px 0px;
 	}

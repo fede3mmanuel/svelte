@@ -4,10 +4,12 @@
     const hideAlert = () => {
         show = false;
     }
+
+    let warning = false;
 </script>
 
 {#if show}
-    <div class="alert">
+    <div class="alert" class:warning={warning}>
         50% of all fruit, but more
         <button on:click={hideAlert}>Hide</button>
     </div>
@@ -19,5 +21,9 @@
         font-size: 18px;
         background-color: darkseagreen;
         color: darkslategray;
+    }
+    .warning {
+        background-color: lightpink;
+        color: darkred;
     }
 </style>
