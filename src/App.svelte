@@ -13,16 +13,22 @@
 		console.log(fruits);
 	}
 
+	let num = 10;
+
 </script>
 
 <main>
 
 	{#each fruits as fruit (fruit.id)}
-		<div class="card">
-			<h5>{fruits[0].name}</h5>
-			<p>{fruits[0].color}</p>
-			<button on:click={() => deleteFruit(fruit.id)}>Delete</button>
-		</div>
+		{#if fruit.amount < 4}
+			<div class="card">
+				<h5>{fruits[0].name}</h5>
+				<p>{fruits[0].color}</p>
+				<button on:click={() => deleteFruit(fruit.id)}>Delete</button>
+			</div>
+		{:else}
+			<p>The amount is {fruit.name} is equal or more than 4</p>
+		{/if}
 	{:else}
 		<p>There is no fruit on our fruit array</p>
 	{/each}
