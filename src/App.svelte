@@ -2,14 +2,14 @@
 	import Button from "./Button.svelte";
 
 	const log = () => {
-		console.log("Button clicked");
+		console.log("Element clicked");
 	}
 
 </script>
 
 <main>
 	<Button on:click={log} btnText={"Hello world"}/>
-	<button on:click={log}>App button</button>
+	<button on:click|once={log}>App button</button>
 </main>
 
 <style>
