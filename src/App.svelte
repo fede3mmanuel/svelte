@@ -1,4 +1,8 @@
 <script>
+
+	import Announcement from "./Announcement.svelte";
+
+
 	let fruits = [
 		{name: "Apple", color: "Red", amount: 5, id: 1},
 		{name: "Banana", color: "yellow", amount: 7, id: 2},
@@ -18,6 +22,8 @@
 </script>
 
 <main>
+
+	<Announcement />
 
 	{#each fruits as fruit (fruit.id)}
 		{#if fruit.amount < 4}
